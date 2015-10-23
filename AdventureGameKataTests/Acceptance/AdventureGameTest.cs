@@ -8,14 +8,15 @@ namespace AdventureGameKataTests.Acceptance
 	[TestFixture]
 	class AdventureGameTest
 	{
-		private const string NewLine = "\n";
-
 		[Test]
 		public void it_greets_the_new_player()
 		{
 			var game = GameProcess.Start();
-			game.Input.Write("Player" + NewLine);
-			game.Input.Write(NewLine);
+
+			game.Type("Player");
+			game.PressEnter();
+			game.PressEnter();
+
 			game.WaitForExit();
 
 			Assert.That(game.ReadOutput(), Is.StringContaining("Hi, What is your name?"));
@@ -56,6 +57,16 @@ namespace AdventureGameKataTests.Acceptance
 		}
 
 		public StreamWriter Input { get { return _process.StandardInput; } }
+
+		public void Type(string input)
+		{
+			_process.StandardInput.Write(input);
+		}
+
+		public void PressEnter()
+		{
+			Type("\n");
+		}
 
 		public void WaitForExit()
 		{
