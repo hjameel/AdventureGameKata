@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdventureGameKata;
 using NUnit.Framework;
 
 namespace AdventureGameKataTests.Unit
 {
+	[TestFixture]
 	public class NarratorTests
 	{
 		[Test]
@@ -14,11 +16,7 @@ namespace AdventureGameKataTests.Unit
 		{
 			var narrator = new Narrator();
 
-			narrator.GetNextLine()
+			Assert.That(narrator.GetNextLine(), Is.StringContaining("Hi, What is your name?"));
 		}
-	}
-
-	public class Narrator
-	{
 	}
 }

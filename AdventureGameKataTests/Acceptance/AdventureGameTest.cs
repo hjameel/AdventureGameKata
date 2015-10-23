@@ -18,7 +18,7 @@ namespace AdventureGameKataTests.Acceptance
 
 			game.WaitForExit();
 
-			Assert.That(game.ReadOutput(), Is.StringContaining("Hi, What is your name?"));
+			Assert.That(game.ReadOutput(), Is.StringContaining(" "));
 			Assert.That(game.ReadOutput(), Is.StringContaining("Hi " + "Player"));
 		}
 

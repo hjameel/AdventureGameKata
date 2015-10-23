@@ -51,7 +51,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit\NarratorTests.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AdventureGameKata\AdventureGameKata.csproj">
+      <Project>{33DE719C-3E2B-4D0E-836B-2FD9F132BBC8}</Project>
+      <Name>AdventureGameKata</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

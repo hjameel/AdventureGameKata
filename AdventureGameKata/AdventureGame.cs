@@ -6,7 +6,8 @@ namespace AdventureGameKata
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hi, What is your name?");
+			var narrator = new Narrator();
+			narrator.Greet();
 
 			var name = Console.ReadLine();
 
