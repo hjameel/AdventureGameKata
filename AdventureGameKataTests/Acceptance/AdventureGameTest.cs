@@ -21,6 +21,20 @@ namespace AdventureGameKataTests.Acceptance
 			Assert.That(game.ReadOutput(), Is.StringContaining("Hi, What is your name?"));
 			Assert.That(game.ReadOutput(), Is.StringContaining("Hi " + "Player"));
 		}
+
+		[Test]
+		public void it_sets_the_scene()
+		{
+			var game = GameProcess.Start();
+
+			game.Type("Player");
+			game.PressEnter();
+			game.PressEnter();
+
+			game.WaitForExit();
+			game.ReadOutput();
+			Assert.That(game.ReadOutput(), Is.StringContaining("You are standing by a small white house"));
+		}
 	}
 
 	class GameProcess
