@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.IO;
 using System.Text;
 using NUnit.Framework;
 
@@ -26,6 +25,7 @@ namespace AdventureGameKataTests.Acceptance
 
 	class GameProcess
 	{
+		private const string FileName = @"..\..\..\AdventureGameKata\bin\Debug\AdventureGameKata.exe";
 		private readonly Process _process;
 		private readonly StringBuilder _output;
 
@@ -35,7 +35,6 @@ namespace AdventureGameKataTests.Acceptance
 			_output = output;
 		}
 
-		private const string FileName = @"..\..\..\AdventureGameKata\bin\Debug\AdventureGameKata.exe";
 		public static GameProcess Start()
 		{
 			var process = new Process
@@ -55,8 +54,6 @@ namespace AdventureGameKataTests.Acceptance
 			process.BeginOutputReadLine();
 			return new GameProcess(process, output);
 		}
-
-		public StreamWriter Input { get { return _process.StandardInput; } }
 
 		public void Type(string input)
 		{
